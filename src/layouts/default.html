@@ -1,0 +1,35 @@
+{{!-- This is the base layout for your project, and will be used on every page unless specified. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="{{root}}assets/css/app.css">
+  </head>
+<body>
+
+{{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+{{> body}}
+
+<script src="{{root}}assets/js/app.js"></script>
+<script language="JavaScript" type="text/javascript">
+jq2 = jQuery.noConflict();
+jq2(function( $ ) {
+  // Code using $ as usual goes here; the actual jQuery object is jq2
+  jq2('.slide').on('click', function() {
+      jq2('.slider').slick('slickRemove', jq2('.slick-slide').index(this) - 1)
+  });
+
+  jq2(".slider").slick({
+    dots: true,
+    arrows: false,
+    infinite: false,
+    variableWidth: false,
+  });
+});
+</script>
+</body>
+</html>
